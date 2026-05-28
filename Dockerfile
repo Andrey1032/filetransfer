@@ -8,6 +8,8 @@ WORKDIR /app
 # Для простоты укажем зависимости прямо в Dockerfile
 COPY requirements.txt .
 
+RUN npm config set proxy http://proxy.net.osu.ru:3128
+RUN npm config set https-proxy http://proxy.net.osu.ru:3128
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -16,6 +18,7 @@ COPY main.py .
 
 # Создаём папку для загруженных файлов (на случай, если её нет)
 RUN mkdir -p files
+
 
 # Открываем порт, на котором работает приложение
 EXPOSE 8000
