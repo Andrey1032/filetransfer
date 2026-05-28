@@ -8,8 +8,6 @@ WORKDIR /app
 # Для простоты укажем зависимости прямо в Dockerfile
 COPY requirements.txt .
 
-RUN npm config set proxy http://proxy.net.osu.ru:3128
-RUN npm config set https-proxy http://proxy.net.osu.ru:3128
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
