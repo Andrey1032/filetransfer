@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  file_exchange:
+    build: .
+    container_name: file_exchange_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./uploads:/app/files
+    restart: unless-stopped
